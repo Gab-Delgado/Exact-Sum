@@ -19,7 +19,6 @@ public class Main {
 		try {
 			ppal.executeProgram();
 		} catch (NumberFormatException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
@@ -73,33 +72,6 @@ public class Main {
 		}
 	}
 	
-	/*public String solve (int [] arr, int m) {
-		int bookOne = 0;
-		int bookTwo = 0;
-		int difference = (int) 10e6; // Because the difference will never be a number this big
-		
-		for (int i = 0; i < arr.length; i++) {
-			boolean matches = false;
-			for (int j = i + 1; j < arr.length && !matches; j++) {
-				if (arr[i] + arr[j] == m && Math.abs(arr[i] - arr[j]) < difference) {
-					bookOne = arr[i];
-					bookTwo = arr[j];
-					difference = Math.abs(bookOne - bookTwo);
-					matches = true;
-				}
-			}
-		}
-		
-		if (bookTwo < bookOne) {
-			int mock = bookOne;
-			bookOne = bookTwo;
-			bookTwo = mock;
-		}
-		
-		return "Peter should buy books whose prices are " + bookOne + " and " + bookTwo + ".\n";
-		
-	}*/
-	
 	public String solve(int [] a, int x) {
 		int pos = -1;
 		int i = 0;
@@ -112,31 +84,19 @@ public class Main {
 		int numToSave = 0;
 		int search = 0;
 		
-		//System.out.println("Valores: \n x: " + x);
-		
 		for (int k = 0; k < a.length; k++) {
 			i = k + 1;
 			j = a.length - 1;
 			pos = -1;
 			numToSave = a[k];
-			//System.out.println("Numero guardado: " + numToSave);
 			search = x - numToSave;
-			//System.out.println("Se busca: " + search);
-			
-			// for a[i], E.g.   x = 100, a[0] = 78, search = 22;
-			// We search for a number 22. If there is a number 22 then these are the two numbers
-			// We can wrap it all in a for that goes through the array so then we do a[1] = 36
-			// Therefore search = 64. If there is the number 64, these two are also a solution
-			// We just need to find the one with the less difference between the two numbers.
 			
 			while (i <= j && pos == -1) {
 				m = (j+i)/2;
-				//System.out.println("Soy a[m]: " + a[m]);
 				if (a[m] == search && Math.abs(numToSave - a[m]) < difference) {
 					result = a[m];
 					deff = numToSave;
 					difference = Math.abs(numToSave - a[m]);
-					//System.out.println("Entré!" + "\nEncontrado: " + result + " Deff: " + deff);
 					pos = m;
 				} else if (a[m] > search) {
 					j = m - 1;
@@ -147,8 +107,6 @@ public class Main {
 			
 			
 		}
-		//System.out.println("Valor 1: " + deff + " Result: " + result);
 		return "Peter should buy books whose prices are " + deff + " and " + result + ".\n";
 	}
-	
 }

@@ -93,7 +93,7 @@ public class Main {
 			
 			while (i <= j && pos == -1) {
 				m = (j+i)/2;
-				if (a[m] == search && Math.abs(numToSave - a[m]) < difference) {
+				if (a[m] == search && Math.abs(numToSave - a[m]) < difference) { // This is the binary implementation
 					result = a[m];
 					deff = numToSave;
 					difference = Math.abs(numToSave - a[m]);
